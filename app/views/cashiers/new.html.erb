@@ -1,0 +1,12 @@
+
+<div class="card">
+  <div class="card-header">
+      <h1>New cashier</h1>
+  </div>
+  <div class="card-body">
+    <%= render "form", cashier: @cashier %>
+  </div>
+    <br>
+    <div class="card-footer">
+      <%= link_to "Back", cashiers_path, class: 'btn btn-primary' %>
+    </div>

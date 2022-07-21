@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Finance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Reciept Entry", cashiers_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Voucher
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "Check Voucher", check_vouchers_path, class: "dropdown-item" %>
+                <%= link_to "Journal Voucher", journal_vouchers_path, class: "dropdown-item" %>
+                <li><a class="dropdown-item" href="#">eWallet Ledger</a></li>
+              </ul>
+            </li>
+    
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Accounts
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "Chart of Account", accounts_path, class: "dropdown-item" %>
+                <%= link_to "Bank", banks_path, class: "dropdown-item" %>
+                <%= link_to "Sub Account", sub_accounts_path, class: "dropdown-item" %>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Entries
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "Agent", agents_path, class: "dropdown-item" %>
+                <%= link_to "Payees", payees_path, class: "dropdown-item" %>
+                <%= link_to "Payment", payments_path, class: "dropdown-item" %>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">User</a></li>
+                <%= link_to "Branches", branches_path, class: "dropdown-item" %>
+                <%= link_to "Period", periods_path, class: "dropdown-item" %>
+              </ul>
+            </li>
+             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Reports
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Cash ledger</a></li>
+                <li><a class="dropdown-item" href="#">Check ledger</a></li>
+                <li><a class="dropdown-item" href="#">Journal ledger</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>

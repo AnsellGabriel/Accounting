@@ -1,0 +1,12 @@
+
+<div class="card">
+  <div class="card-header">
+      <h1>New journal voucher</h1>
+  </div>
+  <div class="card-body">
+    <%= render "form", journal_voucher: @journal_voucher %>
+  </div>
+    <br>
+    <div class="card-footer">
+      <%= link_to "Back", journal_vouchers_path, class: 'btn btn-primary' %>
+    </div>

@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference_id: MyString
+  entry_type: MyString
+  transaction_date: 2022-07-08
+  debit_code: 
+  credit_code: 
+  debit: 9.99
+  credit: 9.99
+  account: one
+  branch: one
+  sub_account: one
+
+two:
+  reference_id: MyString
+  entry_type: MyString
+  transaction_date: 2022-07-08
+  debit_code: 
+  credit_code: 
+  debit: 9.99
+  credit: 9.99
+  account: two
+  branch: two
+  sub_account: two

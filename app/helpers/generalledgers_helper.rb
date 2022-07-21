@@ -1,0 +1,2 @@
+module GeneralledgersHelper
+end

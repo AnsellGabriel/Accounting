@@ -1,0 +1,18 @@
+<div class="card">
+  
+  <div class="card-header">
+    <h3>Payee details</h3>
+    <%= button_to "Destroy this payee", @payee, method: :delete , class: "btn btn-primary"%>
+  </div>
+  <div class="card-body">
+    
+    <%= render @payee %>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit this payee", edit_payee_path(@payee), class: "btn btn-secondary btn-sm" %> |
+    <%= link_to "Back to payees", payees_path, class: "btn btn-secondary btn-sm" %>
+
+    
+  </div>
+
+</div>

@@ -1,0 +1,47 @@
+<%= content_tag :h1, "List of Banks" %>
+
+
+<div class="text-end mb-3">
+  <%= link_to new_bank_path, class: 'btn btn-primary' do %>
+    New Bank
+  <% end %>
+</div>
+
+<table class ="table table-striped">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+      <th>ID</th>
+        <th>Bank Title</th>
+        <th>Address</th>
+        <th>Contact No</th>
+        <th>Check Account</th>
+        <th>Iorder</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @banks.each do |bank| %>
+        <tr>
+
+        <td><%= bank.id %></td>
+        <td><%= bank.bank_title %></td>
+        <td><%= bank.address %></td>
+        <td><%= bank.contact_no %></td>
+        <td><%= bank.check_account %></td>
+        <td><%= bank.iOrder %></td>
+    
+          <td>
+            <%= link_to 'View', bank, class: 'btn' %>
+            <%= link_to 'Edit', edit_bank_path(bank), class: 'btn' %>
+            <%= link_to 'Delete', bank, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

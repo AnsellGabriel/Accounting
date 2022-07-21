@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@bank) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs mb-3">
+    <%= f.input :bank_title %>
+    <%= f.input :address %>
+    <%= f.input :contact_no %>
+    <%= f.input :check_account %>
+    <%= f.input :iOrder %>
+    <%= f.association :branch %>
+  </div>
+
+  <div class="form-actions text-end">
+    <%= link_to "Back", banks_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn-success' %>
+  </div>
+<% end %>

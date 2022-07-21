@@ -1,0 +1,45 @@
+<%= content_tag :h1, "List of Payments" %>
+
+
+<div class="text-end mb-3">
+  <%= link_to new_payment_path, class: 'btn btn-primary' do %>
+    New Payment
+  <% end %>
+</div>
+
+<table class ="table table-striped">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+      <th>ID</th>
+        <th>Payment Title</th>
+        <th>Description</th>
+        <th>Plan</th>
+        <th>Abbreviation</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @payments.each do |payment| %>
+        <tr>
+
+        <td><%= payment.id %></td>
+        <td><%= payment.payment_title %></td>
+        <td><%= payment.description %></td>
+        <td><%= payment.plan %></td>
+        <td><%= payment.Abbreviation %></td>
+    
+          <td>
+            <%= link_to 'View', payment, class: 'btn' %>
+            <%= link_to 'Edit', edit_payment_path(payment), class: 'btn' %>
+            <%= link_to 'Delete', payment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

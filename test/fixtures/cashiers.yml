@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orno: MyString
+  or_date: 2022-07-05
+  policy_number: MyString
+  payee: one
+  payment: one
+  agent: one
+  bank: one
+  date_deposit: 2022-07-05
+  amount_paid: 9.99
+  service_fee: 9.99
+  unuse_premium: 9.99
+  amount_deposit: 9.99
+  withholding_tax: 9.99
+
+two:
+  orno: MyString
+  or_date: 2022-07-05
+  policy_number: MyString
+  payee: two
+  payment: two
+  agent: two
+  bank: two
+  date_deposit: 2022-07-05
+  amount_paid: 9.99
+  service_fee: 9.99
+  unuse_premium: 9.99
+  amount_deposit: 9.99
+  withholding_tax: 9.99

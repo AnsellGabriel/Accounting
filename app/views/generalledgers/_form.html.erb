@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@generalledger) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs mb-3">
+    <%= f.input :reference_id %>
+    <%= f.input :entry_type %>
+    <%= f.input :transaction_date %>
+    <%= f.input :debit_code %>
+    <%= f.input :credit_code %>
+    <%= f.input :debit %>
+    <%= f.input :credit %>
+    <%= f.association :account %>
+    <%= f.association :branch %>
+    <%= f.association :sub_account %>
+  </div>
+
+  <div class="form-actions text-end">
+    <%= link_to "Back", generalledgers_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn-success' %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+
+
+<div class="card">
+  
+  <div class="card-header">
+    <h3>Journal details</h3>
+    <%= button_to "Delete", @journal_voucher, method: :delete, class: 'btn btn-danger' %>
+  </div>
+  <div class="card-body">
+    
+    <%= render @journal_voucher %>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit", edit_journal_voucher_path(@journal_voucher), class: "btn btn-secondary btn-sm" %> |
+  <%= link_to "Back", journal_vouchers_path, class: "btn btn-secondary btn-sm" %>
+  </div>
+
+  
+
+</div>
+<br>
+<div class="card">
+  <div class="card-header">
+    <p><strong>Accounts Entry</strong></p>
+    <%= button_to "Add Entry", "#", class: 'btn btn-primary' %>
+  </div>
+  <div class="card-body">
+    
+  </div>
+</div>

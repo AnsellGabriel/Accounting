@@ -1,0 +1,38 @@
+
+<%= simple_form_for(@cashier) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs mb-3">
+    <div class="row">
+      <%= f.input :orno,label: 'ORNO', wrapper_html: {class: "col col-md-4"} %>
+      <%= f.input :policy_number, wrapper_html: {class: "col col-md-4"} %>
+      <%= f.input :or_date, wrapper_html: {class: "col col-md-4"} %>
+    </div>
+      <%= f.association :payee %>
+      <%= f.input :address %>
+      
+    <div class="row">
+      <%= f.association :payment, wrapper_html: {class: "col col-md-6"} %>
+      <%= f.association :agent, wrapper_html: {class: "col col-md-6"} %>
+    </div>
+    <div class="row">
+      <%= f.association :bank, wrapper_html: {class: "col col-md-6"} %>
+      <%= f.input :date_deposit, wrapper_html: {class: "col col-md-6"} %>
+    </div>
+    <div class="row">
+      <%= f.input :amount_paid,label: 'Amount Paid (Gross Premium)', wrapper_html: {class: "col col-md-6"} %>
+      <%= f.input :service_fee, wrapper_html: {class: "col col-md-6"} %>
+    </div>
+    <div class = "row">
+      <%= f.input :unuse_premium, wrapper_html: {class: "col col-md-4"} %>
+      <%= f.input :amount_deposit, wrapper_html: {class: "col col-md-4"} %>
+      <%= f.input :withholding_tax, wrapper_html: {class: "col col-md-4"} %>
+    </div>
+  </div>
+
+  <div class="form-actions text-end">
+    <%= link_to "Back", cashiers_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn-success' %>
+  </div>
+<% end %>

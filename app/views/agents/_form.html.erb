@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@agent) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs mb-3">
+    <%= f.input :agent_name %>
+    <%= f.input :region %>
+    <%= f.association :branch %>
+    <%= f.input :position %>
+  </div>
+
+  <div class="form-actions text-end">
+    <%= link_to "Back", agents_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn-success' %>
+  </div>
+<% end %>

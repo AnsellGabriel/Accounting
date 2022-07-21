@@ -1,0 +1,47 @@
+<%= content_tag :h1, "List of Accounts" %>
+
+
+<div class="text-end mb-3">
+  <%= link_to new_account_path, class: 'btn btn-primary' do %>
+    New Account
+  <% end %>
+</div>
+
+<table class ="table table-striped">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+      <th>ID</th>
+        <th>Account Title</th>
+        <th>Account Type</th>
+        <th>Parent</th>
+        <th>Code Order</th>
+        <th>Order</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+
+        <td><%= account.id %></td>
+        <td><%= account.account_title %></td>
+        <td><%= account.account_type %></td>
+        <td><%= account.parent %></td>
+        <td><%= account.code_order %></td>
+        <td><%= account.order %></td>
+    
+          <td>
+            <%= link_to 'View', account, class: 'btn' %>
+            <%= link_to 'Edit', edit_account_path(account), class: 'btn' %>
+            <%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,45 @@
+<%= content_tag :h1, "List of Agents" %>
+
+
+<div class="text-end mb-3">
+  <%= link_to new_agent_path, class: 'btn btn-primary' do %>
+    New Agent
+  <% end %>
+</div>
+
+<table class ="table table-striped">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+      <th>ID</th>
+        <th>Agent Name</th>
+        <th>Region</th>
+        <th>Branch</th>
+        <th>Position</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @agents.each do |agent| %>
+        <tr>
+
+        <td><%= agent.id %></td>
+        <td><%= agent.agent_name %></td>
+        <td><%= agent.region %></td>
+        <td><%= agent.branch %></td>
+        <td><%= agent.position %></td>
+    
+          <td>
+            <%= link_to 'View', agent, class: 'btn' %>
+            <%= link_to 'Edit', edit_agent_path(agent), class: 'btn' %>
+            <%= link_to 'Delete', agent, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

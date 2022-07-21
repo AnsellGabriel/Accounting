@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_title: MyString
+  account_type: MyString
+  parent: false
+  code_order: MyString
+  iOrder: 1
+
+two:
+  account_title: MyString
+  account_type: MyString
+  parent: false
+  code_order: MyString
+  iOrder: 1

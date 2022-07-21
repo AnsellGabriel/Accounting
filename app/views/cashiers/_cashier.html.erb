@@ -1,0 +1,84 @@
+<div div="<%= dom_id cashier %>">
+  <div class="row">
+    <div class="col col-md-4">
+      <p>
+        <strong>ORNO:</strong>
+        <%= cashier.orno %>
+      </p>
+    </div>
+    <div class="col col-md-4">
+      <p>
+        <strong>OR date:</strong>
+        <%= cashier.or_date %>
+      </p>
+    </div>
+    <div class="col col-md-4">
+      <p>
+        <strong>Policy number:</strong>
+        <%= cashier.policy_number %>
+      </p>
+    </div>
+    <p>
+  </div>
+      <strong>Payee:</strong>
+      <%= cashier.payee %>
+    </p>
+    <p>
+      <strong>Address:</strong>
+      <%= cashier.address %>
+    </p>
+    <div class="row">
+      <div class="col col-md-6">
+        <p>
+          <strong>Payment:</strong>
+          <%= cashier.payment %>
+        </p>
+      </div>
+      <div class="col col-md-6">
+        <p>
+          <strong>Agent:</strong>
+          <%= cashier.agent %>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          <strong>Bank:</strong>
+          <%= cashier.bank %>
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          <strong>Date deposit:</strong>
+          <%= cashier.date_deposit %>
+        </p>  
+      </div>
+    </div>
+  </div>
+  <p>
+    <strong>Amount paid:</strong>
+    <%= cashier.amount_paid %>
+  </p>
+
+  <p>
+    <strong>Service fee:</strong>
+    <%= cashier.service_fee %>
+  </p>
+
+  <p>
+    <strong>Unuse premium:</strong>
+    <%= cashier.unuse_premium %>
+  </p>
+
+  <p>
+    <strong>Amount deposit:</strong>
+    <%= cashier.amount_deposit %>
+  </p>
+
+  <p>
+    <strong>Withholding tax:</strong>
+    <%= cashier.withholding_tax %>
+  </p>
+
+</div>

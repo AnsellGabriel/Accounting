@@ -1,0 +1,28 @@
+<div class="alert alert-primary" role="alert">
+  <%= notice %>
+</div>
+
+<h1>Payees</h1>
+<div class="text-end mb-3">
+  <%= link_to "New payee", new_payee_path ,class: "btn btn-primary" %>
+</div>
+<table class ="table table-striped">
+  <thead>
+    <tr>
+      <th>Payee</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payees.each do |payee| %>
+      <tr>
+        <td><%= payee.payee %></td>
+        <td><%= payee.address %></td>
+        <td><%= payee.description %></td>
+        <td><%= link_to "Show this payee", payee %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payee: one
+  bank: one
+  voucher: MyString
+  date_voucher: 2022-07-05
+  address: MyString
+  description: MyText
+  amount: 9.99
+
+two:
+  payee: two
+  bank: two
+  voucher: MyString
+  date_voucher: 2022-07-05
+  address: MyString
+  description: MyText
+  amount: 9.99

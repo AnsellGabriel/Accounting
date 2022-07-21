@@ -1,0 +1,40 @@
+<%= content_tag :h1, "List of Sub Accounts" %>
+
+
+<div class="text-end mb-3">
+  <%= link_to new_sub_account_path, class: 'btn btn-primary' do %>
+    New Sub Account
+  <% end %>
+</div>
+
+<table class ="table table-striped">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+      <th>ID</th>
+        <th>Subaccount Title</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    
+      <% @sub_accounts.each do |sub_account| %>
+        <tr>
+
+        <td><%= sub_account.id %></td>
+        <td><%= sub_account.sub_account_title %></td>
+        <td><%= sub_account.description %></td>
+    
+          <td>
+            <%= link_to 'View', sub_account, class: 'btn' %>
+            <%= link_to 'Edit', edit_sub_account_path(sub_account), class: 'btn' %>
+            <%= link_to 'Delete', sub_account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

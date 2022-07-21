@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  voucher: MyString
+  date_voucher: 2022-06-28
+  payee: one
+  address: MyString
+  description: MyText
+  period: one
+  branch: one
+
+two:
+  voucher: MyString
+  date_voucher: 2022-06-28
+  payee: two
+  address: MyString
+  description: MyText
+  period: two
+  branch: two

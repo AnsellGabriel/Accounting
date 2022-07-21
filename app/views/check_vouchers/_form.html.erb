@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@check_voucher) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs mb-3">
+    <%= f.input :voucher %>
+    <%= f.input :date_voucher %>
+    <%= f.association :payee %>
+    <%= f.association :bank %>
+    
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :amount %>
+  </div>
+
+  <div class="form-actions text-end">
+    <%= link_to "Back", check_vouchers_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn-success' %>
+  </div>
+<% end %>

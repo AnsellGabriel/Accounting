@@ -1,0 +1,18 @@
+
+
+<div class="card">
+  
+  <div class="card-header">
+    <h3>Payee details</h3>
+    <%= button_to "Delete", @payment, method: :delete, class: 'btn btn-danger' %>
+  </div>
+  <div class="card-body">
+    
+    <%= render @payment %>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit", edit_payment_path(@payment), class: "btn btn-secondary btn-sm" %> |
+  <%= link_to "Back", payments_path, class: "btn btn-secondary btn-sm" %>
+  </div>
+
+</div>
