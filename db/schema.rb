@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_21_010437) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_02_010157) do
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "account_title"
     t.string "account_type"
     t.boolean "parent"
     t.string "code_order"
-    t.decimal "order", precision: 10
+    t.decimal "order", precision: 18, scale: 2
+    t.string "division"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,24 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_010437) do
     t.index ["payee_id"], name: "index_check_vouchers_on_payee_id"
   end
 
-  create_table "generalledgers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "reference_id"
-    t.string "entry_type"
-    t.date "transaction_date"
-    t.bigint "debit_code"
-    t.bigint "credit_code"
-    t.decimal "debit", precision: 18, scale: 2
-    t.decimal "credit", precision: 18, scale: 2
-    t.bigint "account_id", null: false
-    t.bigint "branch_id", null: false
-    t.bigint "sub_account_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_generalledgers_on_account_id"
-    t.index ["branch_id"], name: "index_generalledgers_on_branch_id"
-    t.index ["sub_account_id"], name: "index_generalledgers_on_sub_account_id"
-  end
-
   create_table "journal_vouchers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "voucher"
     t.date "date_voucher"
@@ -123,6 +106,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_010437) do
     t.index ["jv_period_id"], name: "index_journal_vouchers_on_jv_period_id"
     t.index ["payee_id"], name: "index_journal_vouchers_on_payee_id"
     t.index ["period_id"], name: "index_journal_vouchers_on_period_id"
+  end
+
+  create_table "ledgers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "reference"
+    t.string "entry_type"
+    t.decimal "debit", precision: 18, scale: 2
+    t.decimal "credit", precision: 18, scale: 2
+    t.bigint "account_id"
+    t.bigint "sub_account_id"
+    t.string "ledgerable_type"
+    t.bigint "ledgerable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_ledgers_on_account_id"
+    t.index ["ledgerable_type", "ledgerable_id"], name: "index_ledgers_on_ledgerable"
+    t.index ["sub_account_id"], name: "index_ledgers_on_sub_account_id"
   end
 
   create_table "payees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -178,7 +177,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_010437) do
   add_foreign_key "cashiers", "payments"
   add_foreign_key "check_vouchers", "banks"
   add_foreign_key "check_vouchers", "payees"
-  add_foreign_key "generalledgers", "accounts"
-  add_foreign_key "generalledgers", "branches"
-  add_foreign_key "generalledgers", "sub_accounts"
 end

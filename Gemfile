@@ -78,3 +78,4 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'roo'
 gem 'requestjs-rails'
 
+gem 'vanilla_nested', github: 'arielj/vanilla-nested', branch: :main

@@ -1,18 +1,14 @@
-
-
-<div class="card">
+<div>
+  <%= render @check_voucher %>
+</div>
+<div class="text-end">
   
-  <div class="card-header">
-    <h3>Payee details</h3>
-    <%= button_to "Delete", @check_voucher, method: :delete, class: 'btn btn-danger' %>
+  <%= link_to '<i class="bi bi-plus-square"></i> New item'.html_safe, new_ledger_path(v: @check_voucher, type: 'CV'), class: "btn btn-primary mb-3 mt-3", data: { turbo_frame: "remote_modal" } %>
+</div>
+<%= turbo_frame_tag "ledger_items" do %>
+  <% @voucher = @check_voucher %>
+  <div id="ledger-items-table">
+    <%= render 'ledgers/ledger_entry' %>
   </div>
-  <div class="card-body">
-    
-    <%= render @check_voucher %>
-  </div>
-  <div class="card-footer">
-    <%= link_to "Edit", edit_check_voucher_path(@check_voucher), class: "btn btn-secondary btn-sm" %> |
-  <%= link_to "Back", check_vouchers_path, class: "btn btn-secondary btn-sm" %>
-  </div>
-
+<% end %>
 </div>

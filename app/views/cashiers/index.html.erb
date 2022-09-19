@@ -1,9 +1,9 @@
-<%= content_tag :h1, "List of Cashiers" %>
+<%= content_tag :h1, "List of Receipts" %>
 
 
 <div class="text-end mb-3">
   <%= link_to new_cashier_path, class: 'btn btn-primary' do %>
-    New Cashier
+    New Receipt
   <% end %>
 </div>
 
@@ -12,10 +12,9 @@
     <thead>
       <tr>
 
-      <th>ID</th>
+
         <th>ORNO</th>
         <th>OR Date</th>
-        <th>Policy Number</th>
         <th>Payee</th>
         <th>Payment</th>
         <th>Amount Paid</th>
@@ -28,10 +27,9 @@
       <% @cashiers.each do |cashier| %>
         <tr>
 
-        <td><%= cashier.id %></td>
+    
         <td><%= cashier.orno %></td>
         <td><%= cashier.or_date %></td>
-        <td><%= cashier.policy_number %></td>
         <td><%= cashier.payee %></td>
         <td><%= cashier.payment %></td>
         <td><%= cashier.amount_paid %></td>
@@ -39,7 +37,7 @@
           <td>
             <%= link_to 'View', cashier, class: 'btn' %>
             <%= link_to 'Edit', edit_cashier_path(cashier), class: 'btn' %>
-            <%= link_to 'Delete', cashier, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+            <%= link_to 'Delete', cashier, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn' %>
           </td>
 
         </tr>

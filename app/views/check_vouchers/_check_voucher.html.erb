@@ -1,37 +1,32 @@
 <div id="<%= dom_id check_voucher %>">
- 
-
-  <p>
-    <strong>Voucher:</strong>
-    <%= check_voucher.voucher %>
-  </p>
-
-  <p>
-    <strong>Date voucher:</strong>
-    <%= check_voucher.date_voucher %>
-  </p>
-   <p>
-    <strong>Payee:</strong>
-    <%= check_voucher.payee_id %>
-  </p>
-
- 
-  <p>
-    <strong>Address:</strong>
-    <%= check_voucher.address %>
-  </p>
-   <p>
-    <strong>Bank:</strong>
-    <%= check_voucher.bank_id %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= check_voucher.description %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= check_voucher.amount %>
-  </p>
-
+  <%#= content_tag :p, %>
+  <%= content_tag :h1, 'Check Voucher', class:"mb-3" %>
+  <%= content_tag :div, class: "card" do %>
+    <%= content_tag :div, class: "card-header" do %>
+      <%= content_tag :p, "Voucher", class: "small text-muted mb-0" %>
+      <%= content_tag(:div, content_tag(:p, check_voucher.voucher, class: "fs-2 text-primary mb-0"), class: "card-title") %>
+      <%= content_tag(:p, check_voucher.description, class: "card-text small") %>
+    <% end %>
+    <%= content_tag :div, class: "card-body" do %>
+      <%= content_tag :dl, class: "row" do %>
+        <%= content_tag :dt, "Date voucher:", class:"col-sm-2"  %>
+        <%= content_tag :dd, check_voucher.date_voucher, class: "col-sm-10" %>
+        <%= content_tag :dt, "Payee:", class:"col-sm-2" %>
+        <%= content_tag :dd, class: "col-sm-10" do %>
+          <%= content_tag :p, check_voucher.payee, class: "mb-1" %>
+          <%= content_tag :p, check_voucher.address, class: "mb-1 small" %>
+        <% end %>
+        <%= content_tag :dt, 'Bank:', class:"col-sm-2" %>
+        <%= content_tag :dd, check_voucher.bank, class:"col-sm-10" %>
+        <%= content_tag :dt, 'Amount:',class:"col-sm-2" %>
+        <%= content_tag :dd, number_to_currency(check_voucher.amount, unit: ""), class:"col-sm-10" %>
+      <% end %>
+      
+    <% end %>
+    <%= content_tag :div, class: "card-footer" do %>
+      <%= link_to 'Delete', check_voucher, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn btn-danger btn-sm' %>
+      <%= link_to "Edit", edit_check_voucher_path(@check_voucher), class: "btn btn-secondary btn-sm" %> |
+      <%= link_to "Back", check_vouchers_path, class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  <% end %>
 </div>

@@ -5,9 +5,9 @@
 
   <div class="form-inputs mb-3">
     <div class="row">
-      <%= f.input :orno,label: 'ORNO', wrapper_html: {class: "col col-md-4"} %>
+      <%= f.input :orno,label: 'Official Reciept', wrapper_html: {class: "col col-md-4"} %>
       <%= f.input :policy_number, wrapper_html: {class: "col col-md-4"} %>
-      <%= f.input :or_date, wrapper_html: {class: "col col-md-4"} %>
+      <%= f.input :or_date, label: 'Reciept date', wrapper_html: {class: "col col-md-4"} %>
     </div>
       <%= f.association :payee %>
       <%= f.input :address %>

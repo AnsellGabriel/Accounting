@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/arielj/vanilla-nested.git
+  revision: ffc35385b7eea901dd4ed0b63153b9f7c0effe6a
+  branch: main
+  specs:
+    vanilla_nested (1.6.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -258,6 +265,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  vanilla_nested!
   web-console
   webdrivers
 

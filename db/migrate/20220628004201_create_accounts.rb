@@ -5,8 +5,9 @@ class CreateAccounts < ActiveRecord::Migration[7.0]
       t.string :account_type
       t.boolean :parent
       t.string :code_order
-      t.decimal :order
-
+      t.decimal :order, precision: 18, scale: 2
+      t.string :division
+      
       t.timestamps
     end
   end

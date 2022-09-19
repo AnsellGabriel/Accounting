@@ -1,0 +1,33 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Account</th>
+      <th>Sub-account</th>
+      <th class="text-end">Debit</th>
+      <th class="text-end">Credit</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @voucher.ledgers.each do |ledger| %>
+      <tr id=<%= dom_id(ledger) %>>
+        <td><%= ledger.id %></td>
+        <td><%= ledger.account %></td>
+        <td><%= ledger.sub_account %></td>
+        <td class="text-end"><%= number_to_currency(ledger.debit, :unit => "") %></td>
+        <td class="text-end"><%= number_to_currency(ledger.credit, :unit => "") %></td>
+        <td>
+          <%= link_to 'Edit', edit_ledger_path(ledger), data: { turbo_frame: "remote_modal" }, class: 'btn'  %>
+          <%= link_to 'Delete', ledger, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot class="fw-bold">
+    <td></td>
+    <td colspan="2" class="table-active">TOTAL</td>
+    <td class="text-end"><%= number_to_currency(@total_debit, :unit => "") %></td>
+    <td class="text-end"><%= number_to_currency(@total_credit, :unit => "") %></td>
+  </tfoot>
+</table>

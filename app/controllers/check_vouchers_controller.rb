@@ -8,6 +8,8 @@ class CheckVouchersController < ApplicationController
 
   # GET /check_vouchers/1 or /check_vouchers/1.json
   def show
+    @total_debit = @check_voucher.ledgers.where(entry_type: "Debit").sum(:debit)
+    @total_credit = @check_voucher.ledgers.where(entry_type: "Credit").sum(:credit)
   end
 
   # GET /check_vouchers/new
@@ -25,11 +27,13 @@ class CheckVouchersController < ApplicationController
 
     respond_to do |format|
       if @check_voucher.save
+        
         format.html { redirect_to check_voucher_url(@check_voucher), notice: "Check voucher was successfully created." }
         format.json { render :show, status: :created, location: @check_voucher }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @check_voucher.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -57,6 +61,8 @@ class CheckVouchersController < ApplicationController
     end
   end
 
+ 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_check_voucher
@@ -65,6 +71,7 @@ class CheckVouchersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def check_voucher_params
-      params.require(:check_voucher).permit(:payee_id, :bank_id, :voucher, :date_voucher, :address, :description, :amount)
+      params.require(:check_voucher).permit(:payee_id, :bank_id, :voucher, :date_voucher, :address, :description, :amount,
+      ledgers_attributes: [:id, :account_id, :reference, :entry_type, :debit, :credit, :_destroy])
     end
 end

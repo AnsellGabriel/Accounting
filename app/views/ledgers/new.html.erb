@@ -1,0 +1,6 @@
+<%= render "remote_modal", title: "Enter Account" do %>
+  <%# <div data-controller="turbomodal" data-action="turbo:submit-end->turbomodal#submitEnd"> %>
+    <%= render "form", url: ledgers_path(v: @check_voucher, type: @type), meth: 'post' %>
+  <%# </div> %>
+<% end %>
+ 

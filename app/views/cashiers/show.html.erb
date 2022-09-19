@@ -1,18 +1,11 @@
+<%= render @cashier %>
 
-
-<div class="card">
-  
-  <div class="card-header">
-    <h3>Payee details</h3>
-    <%= button_to "Delete", @cashier, method: :delete, class: 'btn btn-danger' %>
-  </div>
-  <div class="card-body">
-    
-    <%= render @cashier %>
-  </div>
-  <div class="card-footer">
-    <%= link_to "Edit", edit_cashier_path(@cashier), class: "btn btn-secondary btn-sm" %> |
-  <%= link_to "Back", cashiers_path, class: "btn btn-secondary btn-sm" %>
-  </div>
-
+<div class="text-end">
+  <%= link_to '<i class="bi bi-plus-square"></i> New item'.html_safe, new_ledger_path(v: @cashier, type: 'OR'), class: "btn btn-primary mb-3 mt-3", data: { turbo_frame: "remote_modal" } %>
 </div>
+<%= turbo_frame_tag "ledger_items" do %>
+  <% @voucher = @cashier %>
+  <div id="ledger-items-table">
+    <%= render 'ledgers/ledger_entry' %>
+  </div>
+<% end %>

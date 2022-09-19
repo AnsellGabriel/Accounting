@@ -5,4 +5,5 @@ class Cashier < ApplicationRecord
   belongs_to :agent
   belongs_to :bank
   # has_many :generalledgers as: :ledgerable
+  has_many :ledgers, as: :ledgerable
 end

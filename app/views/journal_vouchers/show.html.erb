@@ -1,30 +1,13 @@
-
-
-<div class="card">
-  
-  <div class="card-header">
-    <h3>Journal details</h3>
-    <%= button_to "Delete", @journal_voucher, method: :delete, class: 'btn btn-danger' %>
-  </div>
-  <div class="card-body">
-    
-    <%= render @journal_voucher %>
-  </div>
-  <div class="card-footer">
-    <%= link_to "Edit", edit_journal_voucher_path(@journal_voucher), class: "btn btn-secondary btn-sm" %> |
-  <%= link_to "Back", journal_vouchers_path, class: "btn btn-secondary btn-sm" %>
-  </div>
-
-  
-
+<div>
+  <%= render @journal_voucher %>
 </div>
-<br>
-<div class="card">
-  <div class="card-header">
-    <p><strong>Accounts Entry</strong></p>
-    <%= button_to "Add Entry", "#", class: 'btn btn-primary' %>
+<div class="text-end mt-3">
+  <%= link_to '<i class="bi bi-plus-square"></i> New item'.html_safe, new_ledger_path(v: @journal_voucher, type: 'JV'), class: "btn btn-primary mb-3", data: { turbo_frame: "remote_modal" } %>
+</div>
+<%= turbo_frame_tag "ledger_items" do %>
+  <div id="ledger-items-table">
+    <% @voucher = @journal_voucher %>
+    <%= render 'ledgers/ledger_entry' %>
   </div>
-  <div class="card-body">
-    
-  </div>
+<% end %>
 </div>

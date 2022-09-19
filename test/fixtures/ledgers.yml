@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  PolyLedger: MyString
+  entry_type: MyString
+  debit: 9.99
+  credit: 9.99
+  ledgerable: one
+  ledgerable_type: Ledgerable
+
+two:
+  PolyLedger: MyString
+  entry_type: MyString
+  debit: 9.99
+  credit: 9.99
+  ledgerable: two
+  ledgerable_type: Ledgerable

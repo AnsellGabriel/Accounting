@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    <h1>New check voucher</h1>
+  </div>
+  <div class="card-body">
+    <%= render "remote_modal", title: "New item" do %>
+      <%= ff.association :account %>
+      <%= ff.input :entry_type %>
+      <%= ff.input :debit %>
+      <%= ff.input :credit %>
+      <%= link_to_remove_nested(ff, link_text: "Remove") %>
+    </div>
+  <% end %>
+</div>
+<br>
+<div class="card-footer">
+  <%= link_to "Back", check_vouchers_path, class: 'btn btn-primary' %>
+</div>

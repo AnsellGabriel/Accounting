@@ -34,8 +34,8 @@
         <td><%= check_voucher.date_voucher %></td>
         <td><%= check_voucher.payee %></td>
         <td><%= check_voucher.bank %></td>
-        <td><%= check_voucher.description %></td>
-        <td><%= check_voucher.amount %></td>
+        <td class="small"><%= check_voucher.description %></td>
+        <td><%= number_to_currency(check_voucher.amount, :unit => "") %></td>
     
           <td>
             <%= link_to 'View', check_voucher, class: 'btn' %>

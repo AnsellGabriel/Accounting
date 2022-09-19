@@ -1,0 +1,16 @@
+<%= simple_form_for(@ledger, url: url, method: meth) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs mb-3">
+   
+    <%= f.association :account, prompt: "Choose account", input_html: { class: 'form-select' } %>
+    <%= f.association :sub_account, prompt: "Choose sub-account", input_html: { class: 'form-select' } %>
+    <%= f.input :entry_type, collection: Ledger::ACCOUNT_ENTRY, wrapper_html: { class: 'col-md' } %>
+    <%#= f.input :debit, label: "Amount" %>
+     <%= f.input :temp_amount, label: "Amount", input_html: { value: @temp_amount } %>
+ </div>
+  <div class="form-actions text-end">
+    
+    <%= f.button :submit, class: 'btn-success' %>
+  </div>
+<% end %>

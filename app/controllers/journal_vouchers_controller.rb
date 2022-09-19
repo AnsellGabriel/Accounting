@@ -8,6 +8,8 @@ class JournalVouchersController < ApplicationController
 
   # GET /journal_vouchers/1 or /journal_vouchers/1.json
   def show
+    @total_debit = @journal_voucher.ledgers.where(entry_type: "Debit").sum(:debit)
+    @total_credit = @journal_voucher.ledgers.where(entry_type: "Credit").sum(:credit)
   end
 
   # GET /journal_vouchers/new

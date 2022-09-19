@@ -8,6 +8,8 @@ class CashiersController < ApplicationController
 
   # GET /cashiers/1 or /cashiers/1.json
   def show
+    @total_debit = @cashier.ledgers.where(entry_type: "Debit").sum(:debit)
+    @total_credit = @cashier.ledgers.where(entry_type: "Credit").sum(:credit)
   end
 
   # GET /cashiers/new
@@ -65,6 +67,7 @@ class CashiersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cashier_params
-      params.require(:cashier).permit(:orno, :or_date, :policy_number, :payee_id, :address, :payment_id, :agent_id, :bank_id, :date_deposit, :amount_paid, :service_fee, :unuse_premium, :amount_deposit, :withholding_tax)
+      params.require(:cashier).permit(:orno, :or_date, :policy_number, :payee_id, :address, :payment_id, :agent_id, :bank_id, :date_deposit, :amount_paid, :service_fee, :unuse_premium, :amount_deposit, :withholding_tax,
+        ledgers_attributes: [:id, :account_id, :reference, :entry_type, :debit, :credit, :_destroy])
     end
 end

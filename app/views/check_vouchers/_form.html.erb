@@ -1,19 +1,25 @@
-
 <%= simple_form_for(@check_voucher) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs mb-3">
     <%= f.input :voucher %>
     <%= f.input :date_voucher %>
     <%= f.association :payee %>
     <%= f.association :bank %>
-    
     <%= f.input :address %>
     <%= f.input :description %>
     <%= f.input :amount %>
   </div>
 
+  
+  <%#= link_to_add_nested(f, :ledgers, '#ledgerentry', link_classes: "btn btn-primary", partial_form_variable: :ff) %>
+  <%# <div class="row">
+    <div id="ledgerentry"> %>
+      <%#= f.simple_fields_for :ledgers do |lf| %>
+        <%#=# render 'ledger_fields', form: lf %>
+      <%# end %>
+    <%# </div>
+  </div> %>
   <div class="form-actions text-end">
     <%= link_to "Back", check_vouchers_path, class: 'btn btn-secondary' %>
     <%= f.button :submit, class: 'btn-success' %>

@@ -1,37 +1,30 @@
 <div id="<%= dom_id journal_voucher %>">
-  <p>
-    <strong>Voucher:</strong>
-    <%= journal_voucher.voucher %>
-  </p>
-
-  <p>
-    <strong>Date voucher:</strong>
-    <%= journal_voucher.date_voucher %>
-  </p>
-
-  <p>
-    <strong>Payee:</strong>
-    <%= journal_voucher.payee %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= journal_voucher.address %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= journal_voucher.description %>
-  </p>
-
-  <p>
-    <strong>Period:</strong>
-    <%= journal_voucher.period %>
-  </p>
-
-  <p>
-    <strong>Branch:</strong>
-    <%= journal_voucher.branch %>
-  </p>
-
+  <%= content_tag :h1, 'Journal Voucher', class:"mb-3" %>
+  <%= content_tag :div, class: "card" do %>
+    <%= content_tag :div, class: "card-header" do %>
+      <%= content_tag :p, "Voucher", class: "small text-muted mb-0" %>
+      <%= content_tag(:div, content_tag(:p, journal_voucher.voucher, class: "fs-2 text-primary mb-0"), class: "card-title mb-0") %>
+      <p class="small">
+        <strong>Date voucher:</strong>
+        <%= journal_voucher.date_voucher %>
+      </p>
+    <% end %>
+    <%= content_tag :div, class: "card-body" do %>
+      <%= content_tag(:p, journal_voucher.description, class: "card-text small") %>
+  
+      <p>
+        <strong>Payee:</strong>
+        <%= journal_voucher.payee %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= journal_voucher.address %>
+      </p>
+    <% end %>
+    <%= content_tag :div, class: "card-footer" do %>
+      <%= link_to 'Delete', @journal_voucher, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn btn-danger btn-sm' %>
+      <%= link_to "Edit", edit_journal_voucher_path(@journal_voucher), class: "btn btn-secondary btn-sm" %> |
+      <%= link_to "Back", journal_vouchers_path, class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  <% end %>
 </div>
